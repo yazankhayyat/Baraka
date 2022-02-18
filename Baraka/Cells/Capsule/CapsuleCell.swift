@@ -7,13 +7,16 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CapsuleCell: UICollectionViewCell {
     
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     
-    
+    var cellDisposeBag = DisposeBag()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,5 +32,10 @@ class CapsuleCell: UICollectionViewCell {
         let nib = UINib(nibName: "CapsuleCell", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
+    }
+    
+    func bind(to viewModel: CapsuleCellViewModel) {
+        viewModel.symbol.drive(symbolLabel.rx.text).disposed(by: cellDisposeBag)
+        viewModel.price.drive(priceLabel.rx.text).disposed(by: cellDisposeBag)
     }
 }
