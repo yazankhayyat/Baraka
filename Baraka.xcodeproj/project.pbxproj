@@ -20,6 +20,8 @@
 		ACA93F0A27BF76690031F4A4 /* BarakaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA93F0927BF76690031F4A4 /* BarakaUITestsLaunchTests.swift */; };
 		ACA93F2127BF7F900031F4A4 /* URLRequest+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA93F2027BF7F900031F4A4 /* URLRequest+Rx.swift */; };
 		ACA93F2327BF84E50031F4A4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA93F2227BF84E50031F4A4 /* APIClient.swift */; };
+		ACA93F2527BF87040031F4A4 /* ArticlesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA93F2427BF87040031F4A4 /* ArticlesModel.swift */; };
+		ACA93F2727BF891C0031F4A4 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA93F2627BF891C0031F4A4 /* ImageViewModel.swift */; };
 		F87C95F027A47871286A3AE0 /* Pods_Baraka_BarakaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F5296A75250141ABB272D7 /* Pods_Baraka_BarakaUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		ACA93F0927BF76690031F4A4 /* BarakaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarakaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ACA93F2027BF7F900031F4A4 /* URLRequest+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Rx.swift"; sourceTree = "<group>"; };
 		ACA93F2227BF84E50031F4A4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		ACA93F2427BF87040031F4A4 /* ArticlesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesModel.swift; sourceTree = "<group>"; };
+		ACA93F2627BF891C0031F4A4 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		B064B49991B8FF65EFC79383 /* Pods-Baraka-BarakaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baraka-BarakaUITests.release.xcconfig"; path = "Target Support Files/Pods-Baraka-BarakaUITests/Pods-Baraka-BarakaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B2F5296A75250141ABB272D7 /* Pods_Baraka_BarakaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baraka_BarakaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F9AC788F802B642A6BDB6A /* Pods-BarakaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarakaTests.release.xcconfig"; path = "Target Support Files/Pods-BarakaTests/Pods-BarakaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				ACA93EEA27BF76670031F4A4 /* ViewController.swift */,
 				ACA93F2027BF7F900031F4A4 /* URLRequest+Rx.swift */,
 				ACA93F2227BF84E50031F4A4 /* APIClient.swift */,
+				ACA93F2427BF87040031F4A4 /* ArticlesModel.swift */,
+				ACA93F2627BF891C0031F4A4 /* ImageViewModel.swift */,
 				ACA93EEC27BF76670031F4A4 /* Main.storyboard */,
 				ACA93EEF27BF76680031F4A4 /* Assets.xcassets */,
 				ACA93EF127BF76680031F4A4 /* LaunchScreen.storyboard */,
@@ -412,8 +418,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACA93F2727BF891C0031F4A4 /* ImageViewModel.swift in Sources */,
 				ACA93EEB27BF76670031F4A4 /* ViewController.swift in Sources */,
 				ACA93EE727BF76670031F4A4 /* AppDelegate.swift in Sources */,
+				ACA93F2527BF87040031F4A4 /* ArticlesModel.swift in Sources */,
 				ACA93EE927BF76670031F4A4 /* SceneDelegate.swift in Sources */,
 				ACA93F2327BF84E50031F4A4 /* APIClient.swift in Sources */,
 				ACA93F2127BF7F900031F4A4 /* URLRequest+Rx.swift in Sources */,
