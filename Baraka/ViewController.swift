@@ -9,23 +9,26 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-enum Section {
-    case section1
-    case section2
-    case section3
+enum Section: Hashable {
+    case articles(Article)
+    case capsules(Capsule)
 }
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var articles: [Article] = []
     let disposeBag = DisposeBag()
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
+    typealias DataSource  = UICollectionViewDiffableDataSource<Section, Item>
     
-    let unknownError = "Something went wrong"
+    var dataSource: DataSource!
     
+    var articles = [Article]()
+    var capsules = [Capsule]()
+        
+    var articlesViewModel = ArticlesViewModel()
+
     let api = APIClient.shared
 
     override func viewDidLoad() {
@@ -34,7 +37,19 @@ class ViewController: UIViewController {
         collectionView.register(UINib(nibName: ArticlesCell.defaultReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ArticlesCell.defaultReuseIdentifier)
         
         collectionView.register(UINib(nibName: CapsuleCell.defaultReuseIdentifier, bundle: nil), forCellWithReuseIdentifier: CapsuleCell.defaultReuseIdentifier)
-
+        
+        api.getData().subscribe(onNext: { [weak self] item in
+            self!.articles = item.articles.sorted() {
+                return $0.publishedAt.returnDate().compare($1.publishedAt.returnDate()) == .orderedDescending
+            }
+        }, onCompleted: {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }).disposed(by: disposeBag)
+        
+        collectionView.collectionViewLayout = createLayout()
+        configureDataSource()
     }
     
     func showError(error: Error) {
@@ -42,7 +57,4 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         showDetailViewController(alert, sender: self)
     }
-
-    
 }
-
