@@ -7,18 +7,29 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-struct ArticlesViewModel {
+class ArticlesViewModel {
 
-    var items: Observable<[Article]>
+    var items = BehaviorRelay<[Article]>(value: [])
 //    var error: Observable<Error>?
+    var disposeBag = DisposeBag()
     
-    init() {
-        items = APIClient.shared.getData().flatMap({ item in
-            Observable.just(item.articles.sorted(by: { item1, item2 in
-                return DateFormatter().date(from: item1.publishedAt)! > DateFormatter().date(from: item1.publishedAt)!
-            }))
-        })
-        
+    func loadItems() {
+        APIClient.shared.getData().subscribe(onNext: { [weak self] item in
+            Observable.just(item.articles.sorted() {
+                print($0)
+                return $0.publishedAt.returnDate().compare($1.publishedAt.returnDate()) == .orderedDescending
+             }).bind(to: self!.items).disposed(by: self!.disposeBag)
+        }).disposed(by: disposeBag)
+    }
+}
+
+extension String {
+    
+    func returnDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MM, yyyy"
+        return dateFormatter.date(from: self) ?? Date()
     }
 }
