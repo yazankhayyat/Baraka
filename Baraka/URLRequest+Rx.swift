@@ -11,45 +11,39 @@ import RxCocoa
 
 class RxURLRequest {
     
-  private var urlSession: URLSession
+    private var urlSession: URLSession
     
-  public init(config:URLSessionConfiguration) {
-      urlSession = URLSession(configuration:
-                URLSessionConfiguration.default)
-  }
+    init(config:URLSessionConfiguration) {
+      urlSession = URLSession(configuration: URLSessionConfiguration.default)
+    }
     
-  public func get<FeedModel: Decodable>(with request: URLRequest) -> Observable<FeedModel> {
+    func get<FeedModel: Decodable>(with request: URLRequest) -> Observable<FeedModel> {
         
-      return Observable.create { observer in
-      
-          let task = self.urlSession.dataTask(with: request) { (data, response, error) in
+        return Observable.create { observer in
+            let task = self.urlSession.dataTask(with: request) { (data, response, error) in
           
-              if let httpResponse = response as? HTTPURLResponse {
-                  
-                  let statusCode = httpResponse.statusCode
-                  
-                  do {
-                        let currentData = data ?? Data()
-                      
-                        if (200...399).contains(statusCode) {
-                            
-                            let object = try JSONDecoder().decode(FeedModel.self, from: currentData)
-                            observer.onNext(object)
-                        }
-                        else {
-                            observer.onError(error!)
-                        }
-                  } catch {
-                    observer.onError(error)
-                  }
-              }
-          observer.onCompleted()
-        }
-         task.resume()
-          
-         return Disposables.create {
-           task.cancel()
-         }
+                if let httpResponse = response as? HTTPURLResponse {
+                    let statusCode = httpResponse.statusCode
+                        do {
+                            let currentData = data ?? Data()
+                          
+                            if (200...399).contains(statusCode) {
+                                let object = try JSONDecoder().decode(FeedModel.self, from: currentData)
+                                observer.onNext(object)
+                            } else {
+                                observer.onError(error!)
+                            }
+                      } catch {
+                        observer.onError(error)
+                      }
+                }
+                observer.onCompleted()
+            }
+            task.resume()
+            
+            return Disposables.create {
+                task.cancel()
+            }
        }
     }
 }
