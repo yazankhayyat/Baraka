@@ -149,11 +149,10 @@
 			children = (
 				ACA93EE627BF76670031F4A4 /* AppDelegate.swift */,
 				ACA93EE827BF76670031F4A4 /* SceneDelegate.swift */,
+				ACA93F2927BF8A430031F4A4 /* ViewModels */,
+				ACA93F2827BF8A340031F4A4 /* Models */,
+				ACA93F2A27BF8A6F0031F4A4 /* Networking */,
 				ACA93EEA27BF76670031F4A4 /* ViewController.swift */,
-				ACA93F2027BF7F900031F4A4 /* URLRequest+Rx.swift */,
-				ACA93F2227BF84E50031F4A4 /* APIClient.swift */,
-				ACA93F2427BF87040031F4A4 /* ArticlesModel.swift */,
-				ACA93F2627BF891C0031F4A4 /* ImageViewModel.swift */,
 				ACA93EEC27BF76670031F4A4 /* Main.storyboard */,
 				ACA93EEF27BF76680031F4A4 /* Assets.xcassets */,
 				ACA93EF127BF76680031F4A4 /* LaunchScreen.storyboard */,
@@ -177,6 +176,31 @@
 				ACA93F0927BF76690031F4A4 /* BarakaUITestsLaunchTests.swift */,
 			);
 			path = BarakaUITests;
+			sourceTree = "<group>";
+		};
+		ACA93F2827BF8A340031F4A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93F2427BF87040031F4A4 /* ArticlesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ACA93F2927BF8A430031F4A4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93F2627BF891C0031F4A4 /* ImageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		ACA93F2A27BF8A6F0031F4A4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93F2027BF7F900031F4A4 /* URLRequest+Rx.swift */,
+				ACA93F2227BF84E50031F4A4 /* APIClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
