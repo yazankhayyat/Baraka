@@ -15,14 +15,6 @@ class ArticlesViewModel {
 //    var error: Observable<Error>?
     var disposeBag = DisposeBag()
     
-    func loadItems() {
-        APIClient.shared.getData().subscribe(onNext: { [weak self] item in
-            Observable.just(item.articles.sorted() {
-                print($0)
-                return $0.publishedAt.returnDate().compare($1.publishedAt.returnDate()) == .orderedDescending
-             }).bind(to: self!.items).disposed(by: self!.disposeBag)
-        }).disposed(by: disposeBag)
-    }
 }
 
 extension String {

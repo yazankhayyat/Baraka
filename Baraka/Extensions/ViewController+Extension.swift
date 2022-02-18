@@ -28,7 +28,6 @@ extension ViewController {
                     cell.bind(to: vm)
                     return cell
                 }
-
             })
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
