@@ -14,7 +14,7 @@ class APIClient {
     
     let url = URL(string:"https://saurav.tech/NewsAPI/everything/cnn.json")!
         
-    func getData() throws -> Observable<[Any]> {
+    func getData() throws -> Observable<[Articles]> {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField:
