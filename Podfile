@@ -4,15 +4,13 @@
 target 'Baraka' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
   # Pods for Baraka
 
   target 'BarakaTests' do
     inherit! :search_paths
-    # Pods for testing
-
-	pod 'RxSwift', '6.5.0'
-    pod 'RxCocoa', '6.5.0'
+      
   end
 
   target 'BarakaUITests' do
