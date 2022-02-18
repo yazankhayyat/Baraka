@@ -1,0 +1,33 @@
+//
+//  CapsuleCell.swift
+//  Baraka
+//
+//  Created by Yazan Khayyat on 2022-02-18.
+//
+
+import Foundation
+import UIKit
+
+class CapsuleCell: UICollectionViewCell {
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var symbolLabel: UILabel!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        setup()
+    }
+    func setup() {
+        let view = loadViewFromNib()
+        view.frame = bounds
+        addSubview(view)
+    }
+    func loadViewFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "CapsuleCell", bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        return view
+    }
+}

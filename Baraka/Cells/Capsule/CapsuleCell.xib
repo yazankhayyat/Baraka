@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CapsuleCell" customModule="Baraka" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qME-zl-ibn" customClass="CapsuleCell" customModule="Baraka" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="125"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8Jp-cs-rb8">
+                <rect key="frame" x="0.0" y="0.0" width="282" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o9V-E2-Gsq">
+                        <rect key="frame" x="15" y="10" width="252" height="105"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83k-MP-oTu" userLabel="Symbol Label">
+                                <rect key="frame" x="0.0" y="0.0" width="126" height="105"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKk-wZ-DNF">
+                                <rect key="frame" x="126" y="0.0" width="126" height="105"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o9V-E2-Gsq" secondAttribute="bottom" constant="10" id="ahu-s6-ufe"/>
+                    <constraint firstItem="o9V-E2-Gsq" firstAttribute="top" secondItem="8Jp-cs-rb8" secondAttribute="top" constant="10" id="eBd-sc-cuN"/>
+                    <constraint firstAttribute="trailing" secondItem="o9V-E2-Gsq" secondAttribute="trailing" constant="15" id="og5-5m-83d"/>
+                    <constraint firstItem="o9V-E2-Gsq" firstAttribute="leading" secondItem="8Jp-cs-rb8" secondAttribute="leading" constant="15" id="xbG-ex-eBl"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="282" height="125"/>
+            <connections>
+                <outlet property="priceLabel" destination="yKk-wZ-DNF" id="PJ8-VJ-kZn"/>
+                <outlet property="tickerLabel" destination="83k-MP-oTu" id="4wO-YS-Uf2"/>
+            </connections>
+            <point key="canvasLocation" x="-30.434782608695656" y="171.76339285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>
