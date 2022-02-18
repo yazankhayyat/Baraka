@@ -6,36 +6,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-struct Articles: Decodable {
-    let articles: [FeedModel]
+struct Articles: Codable {
+    let articles: [Article]
 }
 
-
-struct FeedModel: Decodable {
+struct Article: Codable {
     
-    let author: String
+    let author: String?
     let title: String
     let description: String
     let publishedAt: String
     let urlToImage: String
     
-    
-    init(author: String, title: String, description: String, publishedAt: String, urlToImage: String) {
-        self.author = author
-        self.title = title
-        self.description = description
-        self.publishedAt = publishedAt
-        self.urlToImage = urlToImage
+    var url: Observable<UIImage?> {
+        let url = URL(string: urlToImage)!
+        let data = try? Data(contentsOf: url)
+        let image = UIImage(data: data!)
+        return Observable.just(image)
     }
     
-    func toDictionary() -> [String: Any] {
-        return [
-            "author": author,
-            "title": title,
-            "description": description,
-            "publishedAt": publishedAt,
-            "urlToImage": urlToImage
-        ]
-    }
 }
