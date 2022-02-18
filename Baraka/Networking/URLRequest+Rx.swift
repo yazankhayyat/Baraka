@@ -17,25 +17,25 @@ class RxURLRequest {
       urlSession = URLSession(configuration: URLSessionConfiguration.default)
     }
     
-    func get<FeedModel: Decodable>(with request: URLRequest) -> Observable<FeedModel> {
+    func get<T: Decodable>(with request: URLRequest) -> Observable<T> {
         
         return Observable.create { observer in
             let task = self.urlSession.dataTask(with: request) { (data, response, error) in
-          
+                
                 if let httpResponse = response as? HTTPURLResponse {
                     let statusCode = httpResponse.statusCode
-                        do {
-                            let currentData = data ?? Data()
-                          
-                            if (200...399).contains(statusCode) {
-                                let object = try JSONDecoder().decode(FeedModel.self, from: currentData)
-                                observer.onNext(object)
-                            } else {
-                                observer.onError(error!)
-                            }
-                      } catch {
-                        observer.onError(error)
-                      }
+                    do {
+                        guard let currentData = data else {
+                            observer.onError(error!)
+                            return
+                        }
+                        if (200...399).contains(statusCode) {
+                            let object = try JSONDecoder().decode(T.self, from: currentData)
+                            observer.onNext(object)
+                        }
+                  } catch {
+                    observer.onError(error)
+                  }
                 }
                 observer.onCompleted()
             }
