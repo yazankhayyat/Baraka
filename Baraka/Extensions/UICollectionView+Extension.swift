@@ -24,9 +24,7 @@ extension UICollectionView {
     
     private func createCapsulesLayout() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                             heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = createItem(width: 1.0, height: 1.0)
       
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .absolute(74.0))
@@ -44,10 +42,8 @@ extension UICollectionView {
     
     private func createArticlesLayout() -> NSCollectionLayoutSection {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3),
-                                             heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      
+        let item = createItem(width: 0.4, height: 1.0)
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .absolute(74.0))
         
@@ -60,6 +56,18 @@ extension UICollectionView {
         
         return section
         
+    }
+    
+    private func createItem(width:  CGFloat, height:  CGFloat) ->  NSCollectionLayoutItem {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(width),
+                                             heightDimension: .fractionalHeight(height))
+        return NSCollectionLayoutItem(layoutSize: itemSize)
+    }
+    
+    private func createGroup(width:  CGFloat, height:  CGFloat) ->  NSCollectionLayoutItem {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(width),
+                                             heightDimension: .fractionalHeight(height))
+        return NSCollectionLayoutItem(layoutSize: itemSize)
     }
 }
 
